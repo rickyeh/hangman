@@ -1,25 +1,36 @@
-var server = 'http://hangman.coursera.org/hangman/game';
 var initObj = {
     'email': 'rickbyeh@gmail.com'
 };
+var initObjString = JSON.stringify(initObj);
+
+var gameState = {};
+var url = 'http://hangman.coursera.org/hangman/game';
+var gameUrl ;
+
 
 // send an object to start the game with email
 function startGame() {
-    $.get(server, initObj, function(data) {
-        console.log(data);
-    });
+    var newGameUrl = url + '?data=' + initObjString + '&callback=?';
 
-    $.getJSON(server, initObj, function(data) {
-        console.log(data);
-    });
-}
-
-function promptForLetter() {
-
+    $.getJSON(newGameUrl, processResponse);
+    
 }
 
 function guessLetter(letter) {
+    var guess = JSON.stringify({
+        'guess': letter
+    });
 
+    $.getJSON(gameUrl + '?data=' + guess + '&callback=?', processResponse);
 }
 
-startGame();
+
+function processResponse(obj) {
+    console.log(obj);
+    gameState = obj;
+    gameUrl = url + '/' + gameState.game_key;
+}
+
+$(document).ready(function() {
+    startGame();
+});
