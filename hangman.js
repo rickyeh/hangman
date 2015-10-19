@@ -1,34 +1,31 @@
-var initObj = {
-    'email': 'rickbyeh@gmail.com'
-};
-var initObjString = JSON.stringify(initObj);
-
-var gameState = {};
 var url = 'http://hangman.coursera.org/hangman/game';
-var gameUrl ;
+var gameState = {};
 
-
-// send an object to start the game with email
+// Function that starts the game
 function startGame() {
-    var newGameUrl = url + '?data=' + initObjString + '&callback=?';
+    var initObj = JSON.stringify({
+        'email': 'rickbyeh@gmail.com'
+    });
+
+    // Create URL to request a new game from server with JSONP
+    var newGameUrl = url + '?data=' + initObj + '&callback=?';
 
     $.getJSON(newGameUrl, processResponse);
     
 }
 
 function guessLetter(letter) {
-    var guess = JSON.stringify({
-        'guess': letter
-    });
+    var guess = JSON.stringify({'guess': letter});
+    var gameUrl = url + '/' + gameState.game_key;
 
     $.getJSON(gameUrl + '?data=' + guess + '&callback=?', processResponse);
 }
 
-
+// Function to process responses from server.
+// Console logs the response object, and updates the global gameState object
 function processResponse(obj) {
     console.log(obj);
     gameState = obj;
-    gameUrl = url + '/' + gameState.game_key;
 }
 
 $(document).ready(function() {
