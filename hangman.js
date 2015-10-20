@@ -14,6 +14,7 @@ function startGame() {
     
 }
 
+// Function that guesses the letter provided as a parameter
 function guessLetter(letter) {
     var guess = JSON.stringify({'guess': letter});
     var gameUrl = url + '/' + gameState.game_key;
