@@ -4,6 +4,23 @@
   b5b5b7 - Light Grey
   f2b362 - Gold */
 
+body {
+    background-color: #252839;
+    color: #b5b5b7;
+}
+
 div {
     text-align: center;
+}
+
+#title {
+    font-size: 30px;
+}
+
+#guesses {
+    font-size: 100px;
+}
+
+#gameBoard {
+    height: 150px;
 }
