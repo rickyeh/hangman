@@ -14,6 +14,11 @@ function startGame() {
     
 }
 
+function updateBoard() {
+    $('#gameBoard').text(gameState.phrase);
+    $('#guesses').text(gameState.num_tries_left);
+}
+
 // Function that guesses the letter provided as a parameter
 function guessLetter(letter) {
     var guess = JSON.stringify({'guess': letter});
@@ -27,6 +32,7 @@ function guessLetter(letter) {
 function processResponse(obj) {
     console.log(obj);
     gameState = obj;
+    updateBoard();
 }
 
 $(document).ready(function() {
