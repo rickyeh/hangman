@@ -35,6 +35,44 @@ function processResponse(obj) {
     updateBoard();
 }
 
+function resetGame() {
+    startGame();
+    updateBoard();
+}
+
+function initClickHandlers() {
+    $('#guessA').click(function(){ guessLetter('A');} );
+    $('#guessB').click(function(){ guessLetter('B');} );
+    $('#guessC').click(function(){ guessLetter('C');} );
+    $('#guessD').click(function(){ guessLetter('D');} );
+    $('#guessE').click(function(){ guessLetter('E');} );
+    $('#guessF').click(function(){ guessLetter('F');} );
+    $('#guessG').click(function(){ guessLetter('G');} );
+    $('#guessH').click(function(){ guessLetter('H');} );
+    $('#guessI').click(function(){ guessLetter('I');} );
+    $('#guessJ').click(function(){ guessLetter('J');} );
+    $('#guessK').click(function(){ guessLetter('K');} );
+    $('#guessL').click(function(){ guessLetter('L');} );
+    $('#guessM').click(function(){ guessLetter('M');} );
+    $('#guessN').click(function(){ guessLetter('N');} );
+    $('#guessO').click(function(){ guessLetter('O');} );
+    $('#guessP').click(function(){ guessLetter('P');} );
+    $('#guessQ').click(function(){ guessLetter('Q');} );
+    $('#guessR').click(function(){ guessLetter('R');} );
+    $('#guessS').click(function(){ guessLetter('S');} );
+    $('#guessT').click(function(){ guessLetter('T');} );
+    $('#guessU').click(function(){ guessLetter('U');} );
+    $('#guessV').click(function(){ guessLetter('V');} );
+    $('#guessW').click(function(){ guessLetter('W');} );
+    $('#guessX').click(function(){ guessLetter('X');} );
+    $('#guessY').click(function(){ guessLetter('Y');} );
+    $('#guessZ').click(function(){ guessLetter('Z');} );
+    $('#newPuzzle').click(function() {
+        resetGame();
+    });
+}
+
 $(document).ready(function() {
     startGame();
+    initClickHandlers();
 });

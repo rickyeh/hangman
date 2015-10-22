@@ -18,36 +18,41 @@ div {
 }
 
 .guessLetter {
-    font-size: 36px;
-    border: 1px solid white;
+    font-size: 5em;
+    border: 1px solid #b5b5b7;
+    border-radius: 15px;
     width: 7.6%;
     float: left;
-    /*float: left;*/
-/*    width: 20%;*/
+    cursor: pointer;
+}
+
+.guessLetter:hover {
+    background-color: #677077;
 }
 
 #title {
-
+    font-size: 8em;
 }
 
 #guesses {
-    font-size: 100px;
+    font-size: 10em;
+    padding-top: 200px;
 }
 
 #gameBoard {
-    height: 150px;
-    font-size: 60px;
+    font-size: 8em;
+    color: #f2b362;
 }
 
 #rowOneLetters {
-    padding-top: 20px;
+    padding-top: 100px;
 }
 
 #rowTwoLetters {
-    padding-bottom: 20px;
+    padding-bottom: 100px;
 }
 
-#newGameDiv {
-    position: absolute;
-    bottom: 5px;
+#newPuzzle {
+
+    font-size: 5em;
 }
