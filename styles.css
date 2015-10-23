@@ -30,6 +30,10 @@ div {
     background-color: #677077;
 }
 
+.disabled {
+    background-color: #666;
+}
+
 #title {
     font-size: 8em;
 }
@@ -42,17 +46,21 @@ div {
 #gameBoard {
     font-size: 8em;
     color: #f2b362;
+    letter-spacing: 7px;
 }
 
 #rowOneLetters {
-    padding-top: 100px;
+    margin: 100px 20px 0px;
 }
 
 #rowTwoLetters {
-    padding-bottom: 100px;
+    margin: 0px 20px 100px;
 }
 
 #newPuzzle {
-
     font-size: 5em;
+    width: 94%;
+    margin: 0px 40px;
+    position: relative;
+    bottom: 50px;
 }
