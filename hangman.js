@@ -36,6 +36,7 @@ function processResponse(obj) {
 }
 
 function resetGame() {
+    $('.guessLetter').removeClass('disabled'); // Reset letters to normal color
     startGame();
     updateBoard();
 }
@@ -50,45 +51,17 @@ function initClickHandlers() {
     //     array.push(String.fromCharCode(i));
     // }
 
-    function closureFcn(i) {
+    function closureFcn(letter) {
         return function() {
-            guessLetter(alphabet[i]);
+            guessLetter(letter);
             $(this).addClass('disabled');
         }
     }
 
     for (var i = 0; i < alphabet.length; i++) {
-        $('#guess' + alphabet[i]).click(closureFcn(i));
+        $('#guess' + alphabet[i]).click(closureFcn(alphabet[i]));
     }
 
-
-
-    // $('#guessA').click(function(){ guessLetter('A'); $(this).addClass('disabled');} );
-    // $('#guessB').click(function(){ guessLetter('B');} );
-    // $('#guessC').click(function(){ guessLetter('C');} );
-    // $('#guessD').click(function(){ guessLetter('D');} );
-    // $('#guessE').click(function(){ guessLetter('E');} );
-    // $('#guessF').click(function(){ guessLetter('F');} );
-    // $('#guessG').click(function(){ guessLetter('G');} );
-    // $('#guessH').click(function(){ guessLetter('H');} );
-    // $('#guessI').click(function(){ guessLetter('I');} );
-    // $('#guessJ').click(function(){ guessLetter('J');} );
-    // $('#guessK').click(function(){ guessLetter('K');} );
-    // $('#guessL').click(function(){ guessLetter('L');} );
-    // $('#guessM').click(function(){ guessLetter('M');} );
-    // $('#guessN').click(function(){ guessLetter('N');} );
-    // $('#guessO').click(function(){ guessLetter('O');} );
-    // $('#guessP').click(function(){ guessLetter('P');} );
-    // $('#guessQ').click(function(){ guessLetter('Q');} );
-    // $('#guessR').click(function(){ guessLetter('R');} );
-    // $('#guessS').click(function(){ guessLetter('S');} );
-    // $('#guessT').click(function(){ guessLetter('T');} );
-    // $('#guessU').click(function(){ guessLetter('U');} );
-    // $('#guessV').click(function(){ guessLetter('V');} );
-    // $('#guessW').click(function(){ guessLetter('W');} );
-    // $('#guessX').click(function(){ guessLetter('X');} );
-    // $('#guessY').click(function(){ guessLetter('Y');} );
-    // $('#guessZ').click(function(){ guessLetter('Z');} );
     $('#newPuzzle').click(function() {
         resetGame();
     });
