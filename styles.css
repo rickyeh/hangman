@@ -7,6 +7,8 @@
 body {
     background-color: #252839;
     color: #b5b5b7;
+    font-family: 'Lato', sans-serif;
+
 }
 
 div {
@@ -49,18 +51,27 @@ div {
     letter-spacing: 7px;
 }
 
+#letterBoard {
+    position: absolute;
+    width: 94%;
+    bottom: 10%;
+    left: 4%;
+    right: 4%;
+}
+
 #rowOneLetters {
-    margin: 100px 20px 0px;
+    margin-top: 100px;
 }
 
 #rowTwoLetters {
-    margin: 0px 20px 100px;
+    margin-bottom: 100px;
 }
 
 #newPuzzle {
     font-size: 5em;
     width: 94%;
-    margin: 0px 40px;
-    position: relative;
-    bottom: 50px;
+    position: absolute;
+    bottom: 3%;
+    left: 4%;
+    right: 4%;
 }
