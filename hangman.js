@@ -10,13 +10,28 @@ function startGame() {
     // Create URL to request a new game from server with JSONP
     var newGameUrl = url + '?data=' + initObj + '&callback=?';
 
-    $.getJSON(newGameUrl, processResponse);
-    
+    $.getJSON(newGameUrl, processResponse);   
 }
 
 function updateBoard() {
     $('#gameBoard').text(gameState.phrase);
-    $('#guesses').text(gameState.num_tries_left);
+    if (endGameCheck()) {
+        $('#guesses').text(gameState.num_tries_left);
+    }
+}
+
+function endGameCheck() {
+    if (gameState.state === 'alive') {
+        return true;
+    } else if (gameState.state === 'won') {
+        alert('Congratulations, you won!');
+    } else if (gameState.state === 'lost') {
+        alert('Doh!  You lost.  Try again!');
+    } else {
+        alert('Error');
+    }
+
+    return false;
 }
 
 // Function that guesses the letter provided as a parameter
@@ -38,7 +53,6 @@ function processResponse(obj) {
 function resetGame() {
     $('.guessLetter').removeClass('disabled'); // Reset letters to normal color
     startGame();
-    updateBoard();
 }
 
 function initClickHandlers() {
