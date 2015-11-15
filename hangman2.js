@@ -1,6 +1,6 @@
 // var url = 'http://hangman.coursera.org/hangman/game';
-var url = 'http://hangman-server.herokuapp.com/';
-// var url = 'localhost:12345';
+// var url = 'http://hangman-server.herokuapp.com/';
+var url = 'http://localhost:12345';
 
 var gameState = {};
 
@@ -14,7 +14,7 @@ function startGame() {
     var newGameUrl = url + '?data=' + initObj + '&callback=?';
     console.log(newGameUrl);
 
-    $.getJSON(newGameUrl, processResponse);   
+    $.getJSON(newGameUrl, processResponse); 
 }
 
 function updateBoard() {
