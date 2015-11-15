@@ -54,14 +54,9 @@ function processResponse(obj) {
     updateBoard();
 }
 
+// Function to reset the UI and start a new game
 function resetGame() {
-    // $('.guessLetter').removeClass('disabled'); // Reset letters to normal color
-    // Animate colors to normal color
-    $('.guessLetter').animate({
-        backgroundColor: '#252839'
-    }, 1000, function(){
-        $(this).removeClass('disabled');
-    });
+    $('.guessLetter').removeClass('disabled', 1000); // Reset letters to normal color
     startGame();
 }
 
