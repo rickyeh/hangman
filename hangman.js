@@ -1,5 +1,5 @@
 // var url = 'http://hangman.coursera.org/hangman/game';
-var url = 'http://hangman-server.herokuapp.com/';
+var url = 'http://hangman-server.herokuapp.com';
 // var url = 'localhost:12345';
 
 var gameState = {};
