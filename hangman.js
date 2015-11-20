@@ -26,21 +26,23 @@ function updateBoard() {
     $('#gameBoard').text(gameState.phrase);
     if (endGameCheck()) {
         $('#guesses').text(gameState.num_tries_left);
+    } else {
+        if (gameState.state === 'won') {
+            alert('Congratulations, you won!');
+        } else if (gameState.state === 'lost') {
+            alert('Doh!  You lost.  Try again!');
+        } else {
+            alert('Error');
+        }
     }
 }
 
 function endGameCheck() {
     if (gameState.state === 'alive') {
         return true;
-    } else if (gameState.state === 'won') {
-        alert('Congratulations, you won!');
-    } else if (gameState.state === 'lost') {
-        alert('Doh!  You lost.  Try again!');
     } else {
-        alert('Error');
+        return false;
     }
-
-    return false;
 }
 
 // Function that guesses the letter provided as a parameter
@@ -88,7 +90,7 @@ function initClickHandlers() {
         return function() {
             guessLetter(letter);
             $(this).addClass('disabled');
-        }
+        };
     }
 
     for (var i = 0; i < alphabet.length; i++) {
