@@ -28,13 +28,15 @@ function updateBoard() {
         $('#guesses').text(gameState.num_tries_left);
     } else {
         if (gameState.state === 'won') {
-            alert('Congratulations, you won!');
+            setTimeout(function() {
+                alert('Congratulations, you won!');
+            }, 500);
         } else if (gameState.state === 'lost') {
             alert('Doh!  You lost.  Try again!');
         } else {
             alert('Error');
         }
-        $('.guessLetter').off();  // Turn off all click handlers for guessing
+        $('.guessLetter').off(); // Turn off all click handlers for guessing
     }
 }
 
