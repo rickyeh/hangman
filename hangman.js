@@ -30,7 +30,7 @@ function updateBoard() {
         if (gameState.state === 'won') {
             setTimeout(function() {
                 alert('Congratulations, you won!');
-            }, 500);
+            }, 750);
         } else if (gameState.state === 'lost') {
             alert('Doh!  You lost.  Try again!');
         } else {
@@ -76,6 +76,7 @@ function processResponse(obj) {
 function resetGame() {
     $('.guessLetter').removeClass('disabled', 1000); // Reset letters to normal color
     $('.guessLetter').removeClass('incorrect', 1000);
+    $('.guessLetter').off();
     $('.guessLetter').on('click', function() {
         guessLetter($(this).text());
         $(this).addClass('disabled');
