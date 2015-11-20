@@ -21,7 +21,7 @@ div {
 }
 
 .guessLetter {
-    font-size: 5em;
+    font-size: 3em;
     border: 1px solid #b5b5b7;
     border-radius: 15px;
     width: 7.6%;
@@ -35,6 +35,10 @@ div {
 
 .disabled {
     background-color: #666;
+}
+
+.incorrect {
+    background-color: #c66;
 }
 
 #title {
@@ -83,4 +87,18 @@ div {
     bottom: 3%;
     left: 4%;
     right: 4%;
+}
+
+@media all and (min-width: 850px) {
+    .guessLetter {
+        font-size: 4em;
+    }
+
+    #title, #gameboard {
+        font-size: 6em;
+    }
+
+    #guesses {
+        font-size: 7em;
+    }
 }
