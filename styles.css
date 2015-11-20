@@ -24,9 +24,10 @@ div {
     font-size: 3em;
     border: 1px solid #b5b5b7;
     border-radius: 15px;
-    width: 7.6%;
+    width: 7.2%;
     float: left;
     cursor: pointer;
+    margin: 0px 1px;
 }
 
 .guessLetter:hover {
@@ -92,6 +93,7 @@ div {
 @media all and (min-width: 850px) {
     .guessLetter {
         font-size: 4em;
+        width: 7.4%;
     }
 
     #title, #gameboard {
