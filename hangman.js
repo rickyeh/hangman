@@ -34,6 +34,7 @@ function updateBoard() {
         } else {
             alert('Error');
         }
+        $('.guessLetter').off();  // Turn off all click handlers for guessing
     }
 }
 
@@ -73,29 +74,34 @@ function processResponse(obj) {
 function resetGame() {
     $('.guessLetter').removeClass('disabled', 1000); // Reset letters to normal color
     $('.guessLetter').removeClass('incorrect', 1000);
+    $('.guessLetter').on('click', function() {
+        guessLetter($(this).text());
+        $(this).addClass('disabled');
+    });
     startGame();
 }
 
 function initClickHandlers() {
-    var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
-                    'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-                    'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
-                    'Y', 'Z'];
+    // var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+    //                 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+    //                 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+    //                 'Y', 'Z'];
 
-    // for (var i = 65; i <= 90 ; i++) {
-    //     array.push(String.fromCharCode(i));
+    // function closureFcn(letter) {
+    //     return function() {
+    //         guessLetter(letter);
+    //         $(this).addClass('disabled');
+    //     };
     // }
 
-    function closureFcn(letter) {
-        return function() {
-            guessLetter(letter);
-            $(this).addClass('disabled');
-        };
-    }
+    // for (var i = 0; i < alphabet.length; i++) {
+    //     $('#guess' + alphabet[i]).click(closureFcn(alphabet[i]));
+    // }
 
-    for (var i = 0; i < alphabet.length; i++) {
-        $('#guess' + alphabet[i]).click(closureFcn(alphabet[i]));
-    }
+    $('.guessLetter').on('click', function() {
+        guessLetter($(this).text());
+        $(this).addClass('disabled');
+    });
 
     $('#newPuzzle').click(function() {
         resetGame();
