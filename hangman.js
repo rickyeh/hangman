@@ -32,7 +32,7 @@ function updateBoard() {
                 alert('Congratulations, you won!');
             }, 750);
         } else if (gameState.state === 'lost') {
-            alert('Doh!  You lost.  Try again!');
+            alert('Doh!  You lost.  Try again!  The correct solution was : \n' + gameState.puzzle);
         } else {
             alert('Error');
         }
